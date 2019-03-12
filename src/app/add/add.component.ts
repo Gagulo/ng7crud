@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 
+import { BusinessService } from '../services/business.service';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -9,8 +11,11 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
   ngForm: FormGroup;
 
-  constructor(private formbuilder: FormBuilder) {
+  constructor(private formbuilder: FormBuilder, private businessService: BusinessService) {
     this.createForm();
+  }
+
+  ngOnInit() {
   }
 
   createForm() {
@@ -21,7 +26,8 @@ export class AddComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  addBusiness(person_name, business_name, business_number) {
+    this.businessService.addBusiness(person_name, business_name, business_number);
   }
 
 }
