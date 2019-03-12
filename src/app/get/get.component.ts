@@ -19,4 +19,10 @@ export class GetComponent implements OnInit {
     });
   }
 
+  deleteBusiness(id) {
+    this.businessService.deleteBusiness(id).subscribe(res => {
+      console.log('Deleted');
+    })
+  }
+
 }

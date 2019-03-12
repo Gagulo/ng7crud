@@ -40,4 +40,8 @@ export class BusinessService {
       .post(`${this.url}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
+
+  deleteBusiness(id) {
+    return this.http.get(`${this.url}/delete/${id}`);
+  }
 }
