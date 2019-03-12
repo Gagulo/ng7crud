@@ -9,3 +9,7 @@ When u clone it run:
 npm install
 ```
 and u good to go.
+
+## Backend
+
+For the backend API use Node.js, and Express framework and MongoDB.
