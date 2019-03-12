@@ -19,4 +19,25 @@ export class BusinessService {
     this.http.post(`${this.url}/add`, object)
         .subscribe(res => console.log('done'));
   }
+
+  getBusinesses() {
+    return this.http.get(`${this.url}`);
+  }
+
+  editBusiness(id) {
+    return this.http.get(`${this.url}/edit/${id}`);
+  }
+
+  updateBusiness(person_name, business_name, business_number, id) {
+
+    const obj = {
+        person_name: person_name,
+        business_name: business_name,
+        business_number: business_number
+      };
+    this
+      .http
+      .post(`${this.url}/update/${id}`, obj)
+      .subscribe(res => console.log('Done'));
+  }
 }

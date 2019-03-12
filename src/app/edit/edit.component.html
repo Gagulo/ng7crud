@@ -1,3 +1,87 @@
-<p>
-  edit works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="ngForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Person Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="person_name"
+          #person_name
+          [(ngModel)]="business.person_name"
+        />
+      </div>
+      <div
+        *ngIf="
+          ngForm.controls['person_name'].invalid &&
+          (ngForm.controls['person_name'].dirty ||
+            ngForm.controls['person_name'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="ngForm.controls['person_name'].errors.required">
+          Person Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business Name </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="business_name"
+          #business_name
+          [(ngModel)]="business.business_name"
+        />
+      </div>
+      <div
+        *ngIf="
+          ngForm.controls['business_name'].invalid &&
+          (ngForm.controls['business_name'].dirty ||
+            ngForm.controls['business_name'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="ngForm.controls['business_name'].errors.required">
+          Person Business is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Business Number </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="bussiness_number"
+          #bussiness_number
+          [(ngModel)]="business.business_number"
+        />
+      </div>
+      <div
+        *ngIf="
+          ngForm.controls['bussiness_number'].invalid &&
+          (ngForm.controls['bussiness_number'].dirty ||
+            ngForm.controls['bussiness_number'].touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="ngForm.controls['bussiness_number'].errors.required">
+          Business Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          (click)="
+            updateBusiness(
+              person_name.value,
+              business_name.value,
+              bussiness_number.value
+            )
+          "
+          [disabled]="ngForm.invalid"
+          class="btn btn-primary"
+        >
+          Update Business
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
